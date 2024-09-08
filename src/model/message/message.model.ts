@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { Model, model, models, Schema } from "mongoose";
 import { IMessage } from "./message.interface";
 
 const messageSchema =new Schema<IMessage>({
@@ -13,4 +13,4 @@ const messageSchema =new Schema<IMessage>({
     }
 
 })
-export const message = model<IMessage>('message',messageSchema)
+export const message =(models.Message as Model<IMessage>) || model<IMessage>('Message',messageSchema)
